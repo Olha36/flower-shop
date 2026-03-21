@@ -1,0 +1,29 @@
+GET http://localhost:3000/flowers
+
+###
+
+GET http://localhost:3000/flowers/69becfb2832447a3dd8f8cce
+
+###
+
+POST http://localhost:3000/flowers
+Content-Type: application/json
+
+{
+  "name": "Rose",
+  "color": "Red",
+  "price": 10
+}
+
+###
+
+DELETE http://localhost:3000/flowers/69becfb2832447a3dd8f8cce
+
+###
+
+PATCH  http://localhost:3000/flowers/69bed2257a1d3c8aa707c2fa
+Content-Type: application/json
+
+{
+  "name": "Lilac"
+}
