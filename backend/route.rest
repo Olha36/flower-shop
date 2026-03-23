@@ -1,12 +1,12 @@
-GET http://localhost:3000/flowers
+GET http://localhost:3001/flowers
 
 ###
 
-GET http://localhost:3000/flowers/69becfb2832447a3dd8f8cce
+GET http://localhost:3001/flowers/69becfb2832447a3dd8f8cce
 
 ###
 
-POST http://localhost:3000/flowers
+POST http://localhost:3001/flowers
 Content-Type: application/json
 
 {
@@ -18,11 +18,11 @@ Content-Type: application/json
 
 ###
 
-DELETE http://localhost:3000/flowers/69bed2257a1d3c8aa707c2fa
+DELETE http://localhost:3001/flowers/69bed2257a1d3c8aa707c2fa
 
 ###
 
-PATCH  http://localhost:3000/flowers/69bed2257a1d3c8aa707c2fa
+PATCH  http://localhost:3001/flowers/69bed2257a1d3c8aa707c2fa
 Content-Type: application/json
 
 {
