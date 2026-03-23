@@ -5,7 +5,7 @@ const flowerSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
-  color: {
+  image: {
     type: String,
     required: true,
   },
@@ -13,6 +13,10 @@ const flowerSchema = new mongoose.Schema({
     type: Number,
     required: true,
   },
+  description: {
+    type: String,
+    required: true,
+  }
 });
 
 module.exports = mongoose.model("Flower", flowerSchema);

@@ -20,8 +20,9 @@ router.get("/:id", getFlower, (req, res) => {
 router.post("/", async (req, res) => {
   const flower = new Flower({
     name: req.body.name,
-    color: req.body.color,
+    image: req.body.image,
     price: req.body.price,
+    description: req.body.description,
   });
 
   try {
@@ -37,9 +38,15 @@ router.patch("/:id", getFlower, async (req, res) => {
   if (req.body.name != null) {
     res.flower.name = req.body.name;
   }
-  if (req.body.color != null) {
-    res.flower.color = req.body.color;
+  if (req.body.image != null) {
+    res.flower.image = req.body.image;
   }
+   if (req.body.price != null) {
+     res.flower.price = req.body.price;
+   }
+    if (req.body.description != null) {
+      res.flower.description = req.body.description;
+    }
 
   try {
     const updatedFlower = await res.flower.save();
