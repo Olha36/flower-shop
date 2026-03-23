@@ -1,0 +1,33 @@
+GET http://localhost:3000/flowers
+
+###
+
+GET http://localhost:3000/flowers/69becfb2832447a3dd8f8cce
+
+###
+
+POST http://localhost:3000/flowers
+Content-Type: application/json
+
+{
+ "name": "Red roses",
+  "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRc_6cuxpubbJPPGNj-xf1TZ_1e8KAkXkAkyg&s",
+  "price": 10,
+  "description": "Romantic bouquet of red roses"
+}
+
+###
+
+DELETE http://localhost:3000/flowers/69bed2257a1d3c8aa707c2fa
+
+###
+
+PATCH  http://localhost:3000/flowers/69bed2257a1d3c8aa707c2fa
+Content-Type: application/json
+
+{
+  "name": "Rose",
+  "image": "https://flowergiftkorea.com/wp-content/uploads/2016/05/ADB42A7F-D38F-4",
+  "price": 10,
+  "description": "Romantic bouquet of red roses"
+}
