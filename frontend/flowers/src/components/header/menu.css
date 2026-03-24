@@ -1,0 +1,38 @@
+.shine {
+  position: absolute;
+  background-repeat: no-repeat;
+  background-size: contain;
+  opacity: 0;
+  animation: glitter 6s linear infinite;
+  z-index: 0;
+}
+.shine.small {
+  width: 20px;
+  height: 20px;
+}
+.shine.medium {
+  width: 30px;
+  height: 30px;
+}
+.shine.large {
+  width: 50px;
+  height: 50px;
+}
+@keyframes glitter {
+  0% {
+    transform: scale(0.3) rotate(0deg);
+    opacity: 0;
+  }
+  25% {
+    transform: scale(1) rotate(360deg);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(0.3) rotate(720deg);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(0.3) rotate(0deg);
+    opacity: 0;
+  }
+}

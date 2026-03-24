@@ -2,6 +2,7 @@
 "use client";
 
 import Link from "next/link";
+import "./menu.css";
 
 type MenuProps = {
   open: boolean;
@@ -50,7 +51,7 @@ export default function Menu({ open }: MenuProps) {
         Contact
       </Link>
 
-      <style jsx>{`
+      {/* <style jsx>{`
         .shine {
           position: absolute;
           background-repeat: no-repeat;
@@ -89,7 +90,7 @@ export default function Menu({ open }: MenuProps) {
             opacity: 0;
           }
         }
-      `}</style>
+      `}</style> */}
     </nav>
   );
 }

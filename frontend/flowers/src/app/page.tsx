@@ -1,4 +1,5 @@
 import Header from "@/components/header/header";
+import Main from "../components/main/Main";
 // import { getFlowers } from "@/lib/api";
 // import type { Flower } from "@/types/flowers";
 // import Image from "next/image";
@@ -9,6 +10,9 @@ export default async function Home() {
   return (
     <>
       <Header />
+      <main>
+        <Main />
+      </main>
     </>
     // <main className="p-10">
     //   <div className="grid grid-cols-3 gap-6">
