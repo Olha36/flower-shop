@@ -4,7 +4,9 @@ import Rose from "../../../assets/rose.png";
 import AboutUs from "../about-us/AboutUs";
 import Gallery from "../gallery/Gallery";
 import OurMission from "../our-mission/OurMission";
-
+import Lilac from "../../../assets/lilac.png";
+import WorkWithUs from "../work-with-us/WorkWithUs";
+import Footer from "../footer/Footer";
 
 const Main = () => {
   return (
@@ -26,6 +28,15 @@ const Main = () => {
       <AboutUs />
       <Gallery />
       <OurMission />
+      <Image
+        src={Lilac}
+        alt="rose"
+        width={1200}
+        height={100}
+        className="mx-auto mb-[200px]"
+      />
+      <WorkWithUs />
+      <Footer  />
     </>
   );
 };
