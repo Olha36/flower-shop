@@ -1,0 +1,26 @@
+[
+  {
+    "id": 1,
+    "number": "1",
+    "src": "/our-mission/1.jpg",
+    "alt": "Floral installations",
+    "title": "Floral installations",
+    "description": "Living art for homes, businesses, and events."
+  },
+  {
+    "id": 2,
+    "number": "2",
+    "src": "/our-mission/2.jpg",
+    "alt": "Native plan arrangements",
+    "title": "Native plan arrangements",
+    "description": "Whether it’s a private retreat or a public space, we craft floral experiences that bloom beyond expectations."
+  },
+  {
+    "id": 3,
+    "number": "3",
+    "src": "/our-mission/3.jpg",
+    "alt": "Custom floral concepts",
+    "title": "Custom floral concepts",
+    "description": "Your vision, our blooms. We build arrangements that are both personal and exquisitely simple. Whether it’s a private retreat or a public space, we craft floral experiences that bloom beyond expectations."
+  }
+]

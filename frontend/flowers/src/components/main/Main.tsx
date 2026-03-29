@@ -3,6 +3,7 @@ import Logo from "../../../assets/logo.svg";
 import Rose from "../../../assets/rose.png";
 import AboutUs from "../about-us/AboutUs";
 import Gallery from "../gallery/Gallery";
+import OurMission from "../our-mission/OurMission";
 
 
 const Main = () => {
@@ -24,6 +25,7 @@ const Main = () => {
       />
       <AboutUs />
       <Gallery />
+      <OurMission />
     </>
   );
 };

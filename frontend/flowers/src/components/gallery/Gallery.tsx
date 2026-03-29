@@ -12,7 +12,6 @@ import {
   EffectCoverflow,
 } from "swiper/modules";
 
-// styles
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
@@ -33,7 +32,7 @@ const Gallery = () => {
       <Swiper
         modules={[Navigation, Pagination, Scrollbar, A11y, EffectCoverflow]}
         spaceBetween={20}
-        slidesPerView={1.2} 
+        slidesPerView={1.2}
         initialSlide={2}
         centeredSlides
         navigation
