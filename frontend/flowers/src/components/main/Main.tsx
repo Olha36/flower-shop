@@ -14,9 +14,9 @@ const Main = () => {
       <Image
         src={Logo}
         alt="Logo"
-        width={1000}
+        width={900}
         height={100}
-        className="pt-[68px] pb-[44px] mx-auto w-[90%]"
+        className="pt-[68px] pb-[44px] mx-auto w-[90%] min-[1440px]:w-[900px]"
       />
       <Image
         src={Rose}
@@ -36,7 +36,7 @@ const Main = () => {
         className="mx-auto mb-[200px]"
       />
       <WorkWithUs />
-      <Footer  />
+      <Footer />
     </>
   );
 };

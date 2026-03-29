@@ -9,7 +9,7 @@ export default function Burger({ open, setOpen }: BurgerProps) {
   return (
     <button
       onClick={() => setOpen(!open)}
-      className="fixed top-[5%] right-8 w-8 h-8 z-50 focus:outline-none relative block sm:hidden"
+      className="fixed top-[5%] right-8 w-8 h-8 z-50 focus:outline-none relative block sm:hidden cursor-pointer"
     >
       <div
         className={`

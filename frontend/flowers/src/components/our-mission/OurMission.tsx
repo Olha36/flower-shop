@@ -25,7 +25,7 @@ const OurMission = () => {
               alt={mission.alt}
               className="my-[80px] mx-auto"
             />
-            <h4 className="max-w-[540px] mx-auto font-bold text-[45px] leading-[110%] text-center tracking-[-0.02em] uppercase text-[#171615]">
+            <h4 className="max-w-[540px] mx-auto font-bold text-[30px] md:text-[45px] leading-[110%] text-center tracking-[-0.02em] uppercase text-[#171615]">
               {mission.title}
             </h4>
             <p className=" max-w-[540px] mx-auto text-[16px] leading-[140%] text-center tracking-[-0.025em] text-[#2C2825] mt-[30px] mb-[80px]">
