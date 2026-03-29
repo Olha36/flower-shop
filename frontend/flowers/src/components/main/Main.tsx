@@ -14,9 +14,9 @@ const Main = () => {
       <Image
         src={Logo}
         alt="Logo"
-        width={1200}
+        width={1000}
         height={100}
-        className="pt-[68px] pb-[44px] mx-auto"
+        className="pt-[68px] pb-[44px] mx-auto w-[90%]"
       />
       <Image
         src={Rose}
