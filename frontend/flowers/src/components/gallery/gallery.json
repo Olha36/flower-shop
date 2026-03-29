@@ -1,0 +1,27 @@
+[
+  {
+    "id": 1,
+    "src": "/gallery/1.jpg",
+    "alt": "Peonies"
+  },
+  {
+    "id": 2,
+    "src": "/gallery/2.png",
+    "alt": "A white flower"
+  },
+  {
+    "id": 3,
+    "src": "/gallery/3.jpg",
+    "alt": "Roses"
+  },
+  {
+    "id": 4,
+    "src": "/gallery/4.jpg",
+    "alt": "Roses"
+  },
+  {
+    "id": 5,
+    "src": "/gallery/5.jpg",
+    "alt": "Roses"
+  }
+]

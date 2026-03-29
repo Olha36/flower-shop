@@ -21,7 +21,7 @@ const AboutUs = () => {
     px-[12px] pt-[8px] pb-[6px]
     w-[100px] sm:w-[110px]
     h-[31px] sm:h-[34px]
-    bg-[#FFC800] rounded-[4px] mx-auto"
+    bg-[#FFC800] rounded-[4px] mx-auto mb-[120px]"
       >
         ABOUT US{" "}
       </button>
