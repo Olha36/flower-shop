@@ -42,13 +42,20 @@ const Header = () => {
     //   </div>
     // </header>
     <header className="py-[27px] flex items-center px-[40px]">
-      <Image src={logo} alt="logo" width={100} height={100} />
+      <Link
+        className="font-bold text-[14px] uppercase text-[#2C2825]"
+        href="/"
+      >
+       <Image src={logo} alt="logo" width={100} height={100} /> 
+      </Link>
+
+     
 
       <div className="ml-auto flex items-center gap-[40px]" ref={ref}>
         <nav className="hidden sm:flex gap-[40px]">
           <Link
             className="font-bold text-[14px] uppercase text-[#2C2825]"
-            href="#"
+            href="/gallery"
           >
             Gallery
           </Link>

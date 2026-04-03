@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "title": "Floral installations",
+    "description": "We create clean, contemporary designs that elevate any environment, from intimate gatherings to grand events.",
+    "src": "/gallery-component/1.jpg",
+    "alt": "Floral installations"
+  },
+  {
+    "id": 2,
+    "title": "Native plant arrangements",
+    "description": "Our selection of locally sourced flora brings natural resilience and effortless elegance to your home.",
+    "src": "/gallery-component/2.jpg",
+    "alt": "Native plant arrangements"
+  },
+  {
+    "id": 3,
+    "title": "Custom floral concepts",
+    "description": "Your vision, our blooms. We build arrangements that are both personal and exquisitely simple.",
+    "src": "/gallery-component/3.jpg",
+    "alt": "Custom floral concepts"
+  }
+]
