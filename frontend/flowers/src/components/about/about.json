@@ -1,0 +1,17 @@
+[
+  {
+    "id": 1,
+    "src": "/about/1.jpg",
+    "alt": "peonies bouquet"
+  },
+  {
+    "id": 2,
+    "src": "/about/2.jpg",
+    "alt": "a peony"
+  },
+  {
+    "id": 3,
+    "src": "/about/3.jpg",
+    "alt": "a flower"
+  }
+]

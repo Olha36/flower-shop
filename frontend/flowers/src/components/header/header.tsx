@@ -13,43 +13,10 @@ const Header = () => {
 
   useOnClickOutside(ref as React.RefObject<HTMLElement>, () => setOpen(false));
   return (
-    // <header className="py-[27px] flex items-center justify-between px-[40px]">
-    //   <Image src={logo} alt={logo} width={100} height={100} />
-    //   <nav className="hidden sm:flex gap-[40px] ">
-    //     <Link
-    //       href="#"
-    //       className="font-bold text-[14px] leading-[140%] tracking-[0.02em] uppercase text-[#2C2825]"
-    //     >
-    //       Gallery
-    //     </Link>
-    //     <Link
-    //       href="#"
-    //       className="font-bold text-[14px] leading-[140%] tracking-[0.02em] uppercase text-[#2C2825]"
-    //     >
-    //       About
-    //     </Link>
-    //     <Link
-    //       href="#"
-    //       className="font-bold text-[14px] leading-[140%] tracking-[0.02em] uppercase text-[#2C2825]"
-    //     >
-    //       Contact
-    //     </Link>
-    //   </nav>
-
-    //   <div ref={ref}>
-    //     <Burger open={open} setOpen={setOpen} />
-    //     <Menu open={open} />
-    //   </div>
-    // </header>
     <header className="py-[27px] flex items-center px-[40px]">
-      <Link
-        className="font-bold text-[14px] uppercase text-[#2C2825]"
-        href="/"
-      >
-       <Image src={logo} alt="logo" width={100} height={100} /> 
+      <Link className="font-bold text-[14px] uppercase text-[#2C2825]" href="/">
+        <Image src={logo} alt="logo" width={100} height={100} />
       </Link>
-
-     
 
       <div className="ml-auto flex items-center gap-[40px]" ref={ref}>
         <nav className="hidden sm:flex gap-[40px]">
@@ -61,13 +28,13 @@ const Header = () => {
           </Link>
           <Link
             className="font-bold text-[14px] uppercase text-[#2C2825]"
-            href="#"
+            href="/about"
           >
             About
           </Link>
           <Link
             className="font-bold text-[14px] uppercase text-[#2C2825]"
-            href="#"
+            href="/contact"
           >
             Contact
           </Link>
