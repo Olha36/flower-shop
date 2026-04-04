@@ -3,12 +3,14 @@
 
 import Link from "next/link";
 import "./menu.css";
+import { Box } from "@mui/material";
 
 type MenuProps = {
   open: boolean;
+  setOpen: (open: boolean) => void;
 };
 
-export default function Menu({ open }: MenuProps) {
+export default function Menu({ open, setOpen }: MenuProps) {
   const stars = Array.from({ length: 200 }).map(() => ({
     top: Math.random() * 100 + "%",
     left: Math.random() * 100 + "%",
@@ -29,7 +31,7 @@ export default function Menu({ open }: MenuProps) {
       `}
     >
       {stars.map((star, index) => (
-        <div
+        <Box
           key={index}
           className={`absolute z-0 shine ${star.size}`}
           style={{
@@ -41,56 +43,27 @@ export default function Menu({ open }: MenuProps) {
         />
       ))}
 
-      <Link href="#" className="font-bold text-[30px] text-white relative z-10">
+      <Link
+        href="/gallery"
+        className="font-bold text-[30px] text-white relative z-10"
+        onClick={() => setOpen(false)}
+      >
         Gallery
       </Link>
-      <Link href="#" className="font-bold text-[30px] text-white relative z-10">
+      <Link
+        href="/about"
+        className="font-bold text-[30px] text-white relative z-10"
+        onClick={() => setOpen(false)}
+      >
         About
       </Link>
-      <Link href="#" className="font-bold text-[30px] text-white relative z-10">
+      <Link
+        href="/contact"
+        className="font-bold text-[30px] text-white relative z-10"
+        onClick={() => setOpen(false)}
+      >
         Contact
       </Link>
-
-      {/* <style jsx>{`
-        .shine {
-          position: absolute;
-          background-repeat: no-repeat;
-          background-size: contain;
-          opacity: 0;
-          animation: glitter 6s linear infinite;
-          z-index: 0;
-        }
-        .shine.small {
-          width: 20px;
-          height: 20px;
-        }
-        .shine.medium {
-          width: 30px;
-          height: 30px;
-        }
-        .shine.large {
-          width: 50px;
-          height: 50px;
-        }
-        @keyframes glitter {
-          0% {
-            transform: scale(0.3) rotate(0deg);
-            opacity: 0;
-          }
-          25% {
-            transform: scale(1) rotate(360deg);
-            opacity: 1;
-          }
-          50% {
-            transform: scale(0.3) rotate(720deg);
-            opacity: 0;
-          }
-          100% {
-            transform: scale(0.3) rotate(0deg);
-            opacity: 0;
-          }
-        }
-      `}</style> */}
     </nav>
   );
 }

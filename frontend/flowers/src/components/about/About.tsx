@@ -23,7 +23,7 @@ const About = () => {
         Our story
       </Typography>
 
-      <Box className="flex gap-4 items-start flex-row-reverse justify-center mt-[20px]">
+      <Box className="flex gap-4 justify-center mt-[20px] flex-col items-center md:flex-row-reverse md:items-start">
         <Box>
           <Typography
             variant="subtitle1"
@@ -48,7 +48,7 @@ const About = () => {
         Beth.
       </Typography>
 
-      <Box className="flex justify-center gap-[20px] mb-[70px]">
+      <Box className="flex justify-center gap-[20px] max-w-[95%] mx-auto lg:max-w-none">
         {flowers.map((flower) => (
           <Box key={flower.id}>
             <Image src={flower.src} width={335} height={400} alt={flower.alt} />
@@ -56,11 +56,11 @@ const About = () => {
         ))}
       </Box>
 
-      <Box className="flex flex-col items-center gap-[20px] mb-[70px]">
+      <Box className="flex flex-col items-center gap-[20px] my-[70px] ">
         <Typography
           variant="body1"
           style={{ fontWeight: 500, fontSize: "24px" }}
-          className=" max-w-[610px] text-[24px] leading-[140%] tracking-[-0.01em] text-[#2C2825]"
+          className="text-[24px] leading-[140%] tracking-[-0.01em] text-[#2C2825] max-w-[85%] md:max-w-[610px]"
         >
           Lily’s journey with flowers began in the heart of Oregon, amidst the
           flourishing fields of her aunts&apos; flower farm. It was there,
@@ -72,7 +72,7 @@ const About = () => {
         <Typography
           variant="body1"
           style={{ fontWeight: 500, fontSize: "24px" }}
-          className="max-w-[610px] text-[24px] leading-[140%] tracking-[-0.01em] text-[#2C2825]"
+          className="text-[24px] leading-[140%] tracking-[-0.01em] text-[#2C2825] max-w-[85%] md:max-w-[610px]"
         >
           Bloom & Co. is the expression of that lifelong passion, a place where
           her love for flowers translates into beautifully curated arrangements
@@ -85,19 +85,27 @@ const About = () => {
       <Box className="my-[70px] flex flex-col items-center gap-[20px]">
         <Typography
           variant="body1"
-          style={{ maxWidth: "400px", fontWeight: 600 }}
+          sx={{
+            maxWidth: { xs: "85%", md: "400px" },
+            fontWeight: 600,
+          }}
         >
           From humble beginnings, Bloom&Co has grown into a beloved local
           destination, known for its artistic arrangements, personal service,
           and commitment to quality.
         </Typography>
 
-        <Typography style={{ maxWidth: "400px", fontWeight: 600 }}>
+        <Typography
+          sx={{
+            maxWidth: { xs: "85%", md: "400px" },
+            fontWeight: 600,
+          }}
+        >
           Discover how we can add a touch of natural beauty to your next event.
         </Typography>
       </Box>
 
-      <Box className='flex justify-center mb-[80px]'>
+      <Box className="flex justify-center mb-[80px]">
         <Btn text="Book a consultation" bgColor="#FFC800" />
       </Box>
 
