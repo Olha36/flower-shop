@@ -16,7 +16,7 @@ const Main = () => {
         alt="Logo"
         width={900}
         height={100}
-        className="pt-[68px] pb-[44px] mx-auto w-[90%] min-[1440px]:w-[900px]"
+        className="pt-[68px] pb-[44px] mx-auto w-[90%] min-[1440px]:w-[900px] animate-pulse"
       />
       <Image
         src={Rose}

@@ -71,8 +71,12 @@ const About = () => {
         </Typography>
         <Typography
           variant="body1"
-          style={{ fontWeight: 500, fontSize: "24px" }}
-          className="text-[24px] leading-[140%] tracking-[-0.01em] text-[#2C2825] max-w-[85%] md:max-w-[610px]"
+          sx={{
+            fontWeight: 500,
+            fontSize: "24px",
+            maxWidth: { xs: "85%", md: "610px" },
+          }}
+          className="leading-[140%] text-[#2C2825]"
         >
           Bloom & Co. is the expression of that lifelong passion, a place where
           her love for flowers translates into beautifully curated arrangements
@@ -86,9 +90,11 @@ const About = () => {
         <Typography
           variant="body1"
           sx={{
-            maxWidth: { xs: "85%", md: "400px" },
-            fontWeight: 600,
+            fontWeight: 500,
+            fontSize: "24px",
+            maxWidth: { xs: "85%", md: "610px" },
           }}
+          className="leading-[140%] text-[#2C2825]"
         >
           From humble beginnings, Bloom&Co has grown into a beloved local
           destination, known for its artistic arrangements, personal service,
@@ -97,9 +103,11 @@ const About = () => {
 
         <Typography
           sx={{
-            maxWidth: { xs: "85%", md: "400px" },
-            fontWeight: 600,
+            fontWeight: 500,
+            fontSize: "24px",
+            maxWidth: { xs: "85%", md: "610px" },
           }}
+          className="leading-[140%] text-[#2C2825]"
         >
           Discover how we can add a touch of natural beauty to your next event.
         </Typography>

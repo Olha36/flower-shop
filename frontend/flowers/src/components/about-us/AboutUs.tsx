@@ -1,17 +1,32 @@
+import { Box, Typography } from "@mui/material";
+import Btn from "../button/Button";
+import './about-us.css'
 const AboutUs = () => {
   return (
-    <div className="about-us">
-      <h2 className="font-bold text-[14px] leading-[140%] text-center tracking-[0.02em] uppercase text-[#575757]">
+    <Box className="about-us">
+      <Typography
+        sx={{ fontWeight: "bold", fontSize: "14px", textAlign: "center" }}
+        className="leading-[140%] tracking-[0.02em] uppercase text-[#575757] title-animation"
+      >
         Who We Are
-      </h2>
-      <p className="w-[220px] sm:w-[412px] lg:w-[770px] font-bold text-[24px] sm:text-[36px] lg:text-[40px] leading-[110%] text-center tracking-[-0.025em] text-[#171615] mt-[20px] mb-[40px] mx-auto">
+      </Typography>
+      <Typography
+        sx={{
+          fontWeight: "bold",
+          fontSize: { sm: "36px", lg: "40px" },
+          width: { sm: "412px", md: "220px", lg: "770px" },
+          textAlign: "center",
+          margin: "20px auto 40px",
+        }}
+        className="leading-[110%] tracking-[-0.025em] text-[#171615]"
+      >
         We&apos;re Our Blooms® and we&apos;re here to help you find your floral
         story.
-      </p>
-      <button className="flex items-center justify-center gap-[10px] px-[12px] pt-[8px] pb-[6px] w-[120px] sm:w-[110px] h-[31px] sm:h-[34px] bg-[#FFC800] rounded-[4px] mx-auto mb-[120px]">
-        ABOUT US{" "}
-      </button>
-    </div>
+      </Typography>
+      <Box className="flex justify-center mb-[80px]">
+        <Btn text="Book a consultation" bgColor="#FFC800" />
+      </Box>
+    </Box>
   );
 };
 export default AboutUs;
