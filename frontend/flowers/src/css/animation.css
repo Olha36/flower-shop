@@ -1,0 +1,57 @@
+.about-container {
+  position: relative;
+}
+
+.title-animation {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeBlurUp 1s ease forwards;
+}
+
+.text-animation {
+  opacity: 0;
+  transform: translateY(30px);
+  animation: fadeUp 1.2s ease forwards;
+  animation-delay: 0.4s;
+}
+
+.button-animation {
+  opacity: 0;
+  transform: translateY(40px);
+  animation: fadeUp 1.2s ease forwards, softBounce 3s ease-in-out infinite;
+  animation-delay: 0.7s;
+}
+
+@keyframes fadeBlurUp {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+    filter: blur(6px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+    filter: blur(0);
+  }
+}
+
+@keyframes fadeUp {
+  0% {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes softBounce {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-6px);
+  }
+}

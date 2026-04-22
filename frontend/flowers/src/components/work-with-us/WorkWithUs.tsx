@@ -1,7 +1,7 @@
 import Link from "next/link";
 import Btn from "../button/Button";
-import { Typography } from "@mui/material";
-
+import { Box, Typography } from "@mui/material";
+import "../../css/animation.css"
 const WorkWithUs = () => {
   return (
     <>
@@ -41,7 +41,12 @@ const WorkWithUs = () => {
           marginBottom: "120px",
         }}
       >
-        <Btn bgColor="#FFC800" text="ABOUT US"></Btn>
+        <Box
+          className="button-animation"
+          sx={{ display: "flex", justifyContent: "center", mb: "80px" }}
+        >
+          <Btn bgColor="#FFC800" text="ABOUT US"></Btn>
+        </Box>
       </Link>
     </>
   );

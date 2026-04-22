@@ -3,9 +3,11 @@ import { Button } from "@mui/material";
 type BtnProps = {
   text: string;
   bgColor?: string;
+  onClick?: () => void;
+  type?: "button" | "submit" | "reset";
 };
 
-const Btn = ({ text, bgColor }: BtnProps) => {
+const Btn = ({ text, bgColor, onClick, type }: BtnProps) => {
   return (
     <>
       <Button
@@ -19,9 +21,11 @@ const Btn = ({ text, bgColor }: BtnProps) => {
           textTransform: "uppercase",
           color: "#2C2825",
           "&:hover": {
-            backgroundColor: bgColor, 
+            backgroundColor: bgColor,
           },
         }}
+        onClick={onClick}
+        type={type}
       >
         {text}
       </Button>
