@@ -5,7 +5,7 @@ import Footer from "../footer/Footer";
 import Header from "../header/header";
 import Image from "next/image";
 import tulips from "../../../assets/tulips.jpg";
-import LazyReveal from "../main/LazyReveal";
+import LazyReveal from "../lazy-reveal/LazyReveal";
 
 const Contact = () => {
   return (

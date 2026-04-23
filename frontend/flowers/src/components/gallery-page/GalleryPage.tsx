@@ -4,7 +4,7 @@ import type { Flower } from "@/types/flowers";
 import Image from "next/image";
 import galleryInfo from "@/components/gallery-page/galleryPage.json";
 import Footer from "../footer/Footer";
-import LazyReveal from "../main/LazyReveal";
+import LazyReveal from "../lazy-reveal/LazyReveal";
 
 const GalleryPageComponent = async () => {
   const flowers: Flower[] = await getFlowers();

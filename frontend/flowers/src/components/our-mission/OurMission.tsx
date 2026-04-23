@@ -1,7 +1,7 @@
 import Image from "next/image";
 import missions from "./mission.json";
 import { Box, Typography } from "@mui/material";
-import LazyReveal from "../main/LazyReveal";
+import LazyReveal from "../lazy-reveal/LazyReveal";
 
 const OurMission = () => {
   return (

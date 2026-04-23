@@ -7,7 +7,7 @@ import OurMission from "../our-mission/OurMission";
 import Lilac from "../../../assets/lilac.png";
 import WorkWithUs from "../work-with-us/WorkWithUs";
 import Footer from "../footer/Footer";
-import LazyReveal from "./LazyReveal";
+import LazyReveal from "../lazy-reveal/LazyReveal";
 
 const Main = () => {
   return (
