@@ -5,5 +5,5 @@ export function isUserLoggedIn() {
 
   return document.cookie
     .split('; ')
-    .some((cookie) => cookie === 'logged-in=true');
+    .some((cookie) => cookie.startsWith('logged-in=') && cookie.split('=')[1] === 'true');
 }

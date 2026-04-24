@@ -1,5 +1,6 @@
 "use client";
 
+import { actions } from "@/data/actions";
 import { useOnClickOutside } from "@/hooks/useOnClickOutside";
 import Image from "next/image";
 import Link from "next/link";
@@ -14,6 +15,7 @@ import { isUserLoggedIn } from "@/lib/utils/clientAuth";
 const Header = () => {
   const [open, setOpen] = useState(false);
   const [wishlistCount, setWishlistCount] = useState(0);
+  const [userLoggedIn, setUserLoggedIn] = useState(() => isUserLoggedIn());
   const ref = useRef<HTMLDivElement>(null);
 
   useOnClickOutside(ref as React.RefObject<HTMLElement>, () => setOpen(false));
@@ -35,6 +37,19 @@ const Header = () => {
     };
   }, []);
 
+  useEffect(() => {
+    const syncAuthState = () => {
+      setUserLoggedIn(isUserLoggedIn());
+    };
+
+    syncAuthState();
+    window.addEventListener("focus", syncAuthState);
+
+    return () => {
+      window.removeEventListener("focus", syncAuthState);
+    };
+  }, []);
+
   const hasWishlistItems = wishlistCount > 0;
 
   const router = useRouter();
@@ -50,6 +65,13 @@ const Header = () => {
     }
 
     router.push("/wishlist");
+  };
+
+  const handleLogout = async () => {
+    await actions.auth.logoutAction();
+    setUserLoggedIn(false);
+    router.push("/");
+    router.refresh();
   };
 
   return (
@@ -102,6 +124,23 @@ const Header = () => {
           >
             Contact
           </Link>
+
+          {userLoggedIn ? (
+            <button
+              type="button"
+              onClick={handleLogout}
+              className="font-bold text-[14px] uppercase text-[#2C2825]"
+            >
+              Sign out
+            </button>
+          ) : (
+            <Link
+              className="font-bold text-[14px] uppercase text-[#2C2825]"
+              href="/auth/signin"
+            >
+              Log in
+            </Link>
+          )}
         </nav>
 
         <Burger open={open} setOpen={setOpen} />

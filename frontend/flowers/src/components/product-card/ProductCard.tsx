@@ -74,7 +74,7 @@ const ProductCard = ({ flower }: ProductCardProps) => {
 
   return (
     <LazyReveal>
-      <Box className="group overflow-hidden rounded-[24px] border border-[#e8dfd8] bg-white shadow-sm transition duration-300 hover:-translate-y-1 hover:shadow-xl">
+      <Box className="overflow-hidden rounded-[24px] border border-[#e8dfd8] bg-white shadow-sm transition duration-300 hover:-translate-y-1 hover:shadow-xl">
         <Box className="relative aspect-[330/318] overflow-hidden">
           <button
             type="button"

@@ -21,7 +21,7 @@ export default function Burger({ open, setOpen }: BurgerProps) {
         right: "32px",
         width: "32px",
         height: "32px",
-        zIndex: 50,
+        zIndex: 110,
         border: "none",
         background: "transparent",
         cursor: "pointer",
