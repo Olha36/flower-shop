@@ -8,6 +8,7 @@ import logo from "../../../assets/logo.svg";
 import Burger from "./Burger";
 import Menu from "./Menu";
 import { Heart } from "lucide-react";
+import { useRouter } from "next/navigation";
 
 const Header = () => {
   const [open, setOpen] = useState(false);
@@ -35,6 +36,27 @@ const Header = () => {
 
   const hasWishlistItems = wishlistCount > 0;
 
+  const isUserLoggedIn = () => {
+    if (typeof window === "undefined") return false;
+    return Boolean(localStorage.getItem("token"));
+  };
+
+  // inside Header component:
+  const router = useRouter();
+
+  const handleWishlistNavigation = (
+    event: React.MouseEvent<HTMLAnchorElement>
+  ) => {
+    event.preventDefault();
+
+    if (!isUserLoggedIn()) {
+      router.push("/auth/signin");
+      return;
+    }
+
+    router.push("/wishlist");
+  };
+
   return (
     <header className="py-[27px] flex items-center px-[40px]">
       <Link className="font-bold text-[14px] uppercase text-[#2C2825]" href="/">
@@ -50,13 +72,15 @@ const Header = () => {
             Our products
           </Link>
 
-          <Link href="/wishlist" className="relative">
+          <Link
+            href="/wishlist"
+            onClick={handleWishlistNavigation}
+            className="relative"
+          >
             <Heart
-              className={`h-5 w-5 transition ${
-                hasWishlistItems
-                  ? "fill-[#c45c54] text-[#c45c54]"
-                  : "text-[#2C2825]"
-              }`}
+              className="h-5 w-5 transition"
+              color={hasWishlistItems ? "#c45c54" : "#2C2825"}
+              fill={hasWishlistItems ? "#c45c54" : "transparent"}
             />
             {hasWishlistItems && (
               <span className="absolute -right-2 -top-2 flex h-4 min-w-4 items-center justify-center rounded-full bg-[#c45c54] px-1 text-[10px] font-bold text-white">

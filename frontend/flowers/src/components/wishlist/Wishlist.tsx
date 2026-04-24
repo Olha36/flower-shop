@@ -5,13 +5,29 @@ import Image from "next/image";
 import Link from "next/link";
 import type { Flower } from "@/types/flowers";
 import Header from "../header/header";
-import { Typography } from "@mui/material";
-import { Box } from "@mui/material";
+import { Typography, Box } from "@mui/material";
+import { useRouter } from "next/navigation";
+
+const isUserLoggedIn = () => {
+  if (typeof window === "undefined") return false;
+  return Boolean(localStorage.getItem("token"));
+};
 
 const Wishlist = () => {
+  const router = useRouter();
   const [items, setItems] = useState<Flower[]>([]);
 
+  const loggedIn = isUserLoggedIn();
+
   useEffect(() => {
+    if (!loggedIn) {
+      router.replace("/auth/signin");
+    }
+  }, [loggedIn, router]);
+
+  useEffect(() => {
+    if (!loggedIn) return;
+
     const loadWishlist = () => {
       const wishlist = JSON.parse(localStorage.getItem("wishlist") || "[]");
       setItems(wishlist);
@@ -23,7 +39,9 @@ const Wishlist = () => {
     return () => {
       window.removeEventListener("wishlist-updated", loadWishlist);
     };
-  }, []);
+  }, [loggedIn]);
+
+  if (!loggedIn) return null;
 
   const removeFromWishlist = (id: string) => {
     const updated = items.filter((item) => item._id !== id);

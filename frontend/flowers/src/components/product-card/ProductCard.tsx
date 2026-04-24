@@ -6,31 +6,57 @@ import { Box, Typography } from "@mui/material";
 import { useEffect, useMemo, useState } from "react";
 import type { Flower } from "@/types/flowers";
 import LazyReveal from "../lazy-reveal/LazyReveal";
+import { useRouter } from "next/navigation";
 
 type ProductCardProps = {
   flower: Flower;
 };
 
+const isUserLoggedIn = () => {
+  if (typeof window === "undefined") return false;
+  return Boolean(localStorage.getItem("token"));
+};
+
 const ProductCard = ({ flower }: ProductCardProps) => {
-  const [isWishlisted, setIsWishlisted] = useState(false);
+  const router = useRouter();
+
+  const [isWishlisted, setIsWishlisted] = useState(() => {
+    if (typeof window === "undefined") return false;
+
+    const wishlist: Flower[] = JSON.parse(
+      localStorage.getItem("wishlist") || "[]"
+    );
+
+    return wishlist.some((item) => item._id === flower._id);
+  });
 
   const formattedPrice = useMemo(
     () => `$${flower.price}/Bunch`,
     [flower.price]
   );
 
-  const isFlowerInWishlist = useMemo(() => {
-    const wishlist: Flower[] = JSON.parse(
-      localStorage.getItem("wishlist") || "[]"
-    );
-    return wishlist.some((item) => item._id === flower._id);
+  useEffect(() => {
+    const syncWishlistState = () => {
+      const wishlist: Flower[] = JSON.parse(
+        localStorage.getItem("wishlist") || "[]"
+      );
+
+      setIsWishlisted(wishlist.some((item) => item._id === flower._id));
+    };
+
+    window.addEventListener("wishlist-updated", syncWishlistState);
+
+    return () => {
+      window.removeEventListener("wishlist-updated", syncWishlistState);
+    };
   }, [flower._id]);
 
-  useEffect(() => {
-    setIsWishlisted(isFlowerInWishlist);
-  }, [isFlowerInWishlist]);
-
   const handleWishlistClick = () => {
+    if (!isUserLoggedIn()) {
+      router.push("/auth/signin");
+      return;
+    }
+
     const currentWishlist: Flower[] = JSON.parse(
       localStorage.getItem("wishlist") || "[]"
     );
