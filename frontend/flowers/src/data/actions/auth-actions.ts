@@ -14,6 +14,13 @@ const config = {
   sameSite: 'lax' as const,
 };
 
+const clientAuthStateCookie = {
+  maxAge: 60 * 60 * 24 * 7,
+  path: '/',
+  secure: process.env.NODE_ENV === 'production',
+  sameSite: 'lax' as const,
+};
+
 export async function registerUserAction(
   prevState: FormState,
   formData: FormData
@@ -68,6 +75,7 @@ export async function registerUserAction(
 
   const cookieStore = await cookies();
   cookieStore.set('jwt', responseData.jwt, config);
+  cookieStore.set('logged-in', 'true', clientAuthStateCookie);
 
   return {
     success: true,
@@ -134,6 +142,7 @@ export async function loginUserAction(
 
   const cookieStore = await cookies();
   cookieStore.set('jwt', responseData.jwt, config);
+  cookieStore.set('logged-in', 'true', clientAuthStateCookie);
 
   return {
     success: true,
@@ -150,4 +159,5 @@ export async function loginUserAction(
 export async function logoutAction() {
   const cookieStore = await cookies();
   cookieStore.set('jwt', '', { ...config, maxAge: 0 });
+  cookieStore.set('logged-in', '', { ...clientAuthStateCookie, maxAge: 0 });
 }

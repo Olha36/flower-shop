@@ -9,6 +9,7 @@ import Burger from "./Burger";
 import Menu from "./Menu";
 import { Heart } from "lucide-react";
 import { useRouter } from "next/navigation";
+import { isUserLoggedIn } from "@/lib/utils/clientAuth";
 
 const Header = () => {
   const [open, setOpen] = useState(false);
@@ -36,12 +37,6 @@ const Header = () => {
 
   const hasWishlistItems = wishlistCount > 0;
 
-  const isUserLoggedIn = () => {
-    if (typeof window === "undefined") return false;
-    return Boolean(localStorage.getItem("token"));
-  };
-
-  // inside Header component:
   const router = useRouter();
 
   const handleWishlistNavigation = (

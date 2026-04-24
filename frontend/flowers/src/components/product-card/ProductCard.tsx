@@ -7,14 +7,10 @@ import { useEffect, useMemo, useState } from "react";
 import type { Flower } from "@/types/flowers";
 import LazyReveal from "../lazy-reveal/LazyReveal";
 import { useRouter } from "next/navigation";
+import { isUserLoggedIn } from "@/lib/utils/clientAuth";
 
 type ProductCardProps = {
   flower: Flower;
-};
-
-const isUserLoggedIn = () => {
-  if (typeof window === "undefined") return false;
-  return Boolean(localStorage.getItem("token"));
 };
 
 const ProductCard = ({ flower }: ProductCardProps) => {

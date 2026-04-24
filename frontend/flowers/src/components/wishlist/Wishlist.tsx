@@ -7,17 +7,12 @@ import type { Flower } from "@/types/flowers";
 import Header from "../header/header";
 import { Typography, Box } from "@mui/material";
 import { useRouter } from "next/navigation";
-
-const isUserLoggedIn = () => {
-  if (typeof window === "undefined") return false;
-  return Boolean(localStorage.getItem("token"));
-};
+import { isUserLoggedIn } from "@/lib/utils/clientAuth";
 
 const Wishlist = () => {
   const router = useRouter();
   const [items, setItems] = useState<Flower[]>([]);
-
-  const loggedIn = isUserLoggedIn();
+  const [loggedIn] = useState(() => isUserLoggedIn());
 
   useEffect(() => {
     if (!loggedIn) {
