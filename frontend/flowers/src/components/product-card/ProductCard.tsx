@@ -82,7 +82,7 @@ const ProductCard = ({ flower }: ProductCardProps) => {
             className="absolute right-4 top-4 z-10 flex h-11 w-11 items-center justify-center rounded-full bg-white/90 shadow-md backdrop-blur transition hover:scale-105"
           >
             <Heart
-              className="h-5 w-5 transition"
+              className="h-5 w-5 transition cursor-pointer"
               color={isWishlisted ? "#c45c54" : "#2C2825"}
               fill={isWishlisted ? "#c45c54" : "transparent"}
             />

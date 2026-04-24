@@ -122,12 +122,24 @@ export default function BuyProductExperience({
           </Typography>
           <Typography
             variant="h1"
-            className="text-4xl font-semibold uppercase leading-[0.96] text-[#2C2825] sm:text-5xl"
+            sx={{
+              fontSize: {
+                xs: "2rem",
+                md: "4rem",
+                lg: "6rem",
+              },
+              fontWeight: 600,
+              lineHeight: 0.96,
+              textTransform: "uppercase",
+              color: "#2C2825",
+            }}
           >
             {flower.name}
           </Typography>
+
           <Typography className="max-w-[42rem] text-base leading-7 text-[#5d524c]">
-            {flower.description || "A hand-tied bouquet prepared in our signature portfolio flow."}
+            {flower.description ||
+              "A hand-tied bouquet prepared in our signature portfolio flow."}
           </Typography>
         </Box>
 
@@ -148,7 +160,9 @@ export default function BuyProductExperience({
             </Typography>
             <button
               type="button"
-              onClick={() => setQuantity((current) => Math.min(24, current + 1))}
+              onClick={() =>
+                setQuantity((current) => Math.min(24, current + 1))
+              }
               className="flex h-11 w-11 items-center justify-center rounded-full border border-[#2C2825] text-xl text-[#2C2825] transition hover:bg-[#2C2825] hover:text-white"
             >
               +
@@ -225,9 +239,9 @@ export default function BuyProductExperience({
             Purchase Confirmation
           </Typography>
           <Typography className="mt-3 text-sm leading-6 text-white/80">
-            This portfolio checkout uses Stripe in test mode only. No real payment
-            is collected. After a successful test checkout, you will see a styled
-            receipt page back in the app.
+            This portfolio checkout uses Stripe in test mode only. No real
+            payment is collected. After a successful test checkout, you will see
+            a styled receipt page back in the app.
           </Typography>
 
           <button
@@ -254,8 +268,8 @@ export default function BuyProductExperience({
 
           {!stripeReady && (
             <Typography className="mt-4 text-sm leading-6 text-[#ffd2cd]">
-              Add `STRIPE_SECRET_KEY` to `.env.local` to enable Stripe Checkout in
-              test mode.
+              Add `STRIPE_SECRET_KEY` to `.env.local` to enable Stripe Checkout
+              in test mode.
             </Typography>
           )}
         </Box>
