@@ -66,7 +66,7 @@ const ProductCard = ({ flower }: ProductCardProps) => {
   };
 
   const handleBuyClick = () => {
-    console.log("Buy product:", flower);
+    router.push(`/buy/${flower._id}`);
   };
 
   return (
