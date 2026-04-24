@@ -1,13 +1,11 @@
 import Header from "@/components/header/header";
-import { getFlowers } from "@/lib/api";
-import type { Flower } from "@/types/flowers";
 import Image from "next/image";
 import galleryInfo from "@/components/gallery-page/galleryPage.json";
 import Footer from "../footer/Footer";
 import LazyReveal from "../lazy-reveal/LazyReveal";
+import flowersImages from "./galleryImages.json";
 
 const GalleryPageComponent = async () => {
-  const flowers: Flower[] = await getFlowers();
   return (
     <div className="w-[95%] mx-auto lg:w-auto">
       <Header />
@@ -19,22 +17,19 @@ const GalleryPageComponent = async () => {
           SEASONAL ARRANGEMENTS
         </h3>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-[1000px] mx-auto">
-          {flowers.map((flower) => (
-            <LazyReveal key={flower._id}>
-              <div key={flower._id} className="">
+          {flowersImages.map((flower) => (
+            <LazyReveal key={flower.id}>
+              <div key={flower.id} className="">
                 <div className="flex gap-2 items-center flex-col">
                   <h2 className="font-bold text-[18px] leading-[140%] text-center uppercase text-[#2C2825]">
-                    {flower.name}
+                    {flower.title}
                   </h2>
-                  <p className="font-bold text-[15px] leading-[140%] text-center tracking-[-0.025em] text-black/60">
-                    ${flower.price}/Bunch
-                  </p>
                 </div>
 
                 <div className="w-full aspect-[330/318] overflow-hidden mx-auto my-[15px] relative">
                   <Image
-                    src={flower.image}
-                    alt={flower.description}
+                    src={flower.src}
+                    alt={flower.alt}
                     fill
                     className="object-cover -z-10"
                   />
