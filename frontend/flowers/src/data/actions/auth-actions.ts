@@ -21,6 +21,10 @@ const clientAuthStateCookie = {
   sameSite: 'lax' as const,
 };
 
+function getClientUserKey(responseData: { user: { id: number; documentId: string } }) {
+  return responseData.user.documentId || String(responseData.user.id);
+}
+
 export async function registerUserAction(
   prevState: FormState,
   formData: FormData
@@ -76,6 +80,7 @@ export async function registerUserAction(
   const cookieStore = await cookies();
   cookieStore.set('jwt', responseData.jwt, config);
   cookieStore.set('logged-in', 'true', clientAuthStateCookie);
+  cookieStore.set('auth-user', getClientUserKey(responseData), clientAuthStateCookie);
 
   return {
     success: true,
@@ -143,6 +148,7 @@ export async function loginUserAction(
   const cookieStore = await cookies();
   cookieStore.set('jwt', responseData.jwt, config);
   cookieStore.set('logged-in', 'true', clientAuthStateCookie);
+  cookieStore.set('auth-user', getClientUserKey(responseData), clientAuthStateCookie);
 
   return {
     success: true,
@@ -160,4 +166,5 @@ export async function logoutAction() {
   const cookieStore = await cookies();
   cookieStore.set('jwt', '', { ...config, maxAge: 0 });
   cookieStore.set('logged-in', '', { ...clientAuthStateCookie, maxAge: 0 });
+  cookieStore.set('auth-user', '', { ...clientAuthStateCookie, maxAge: 0 });
 }

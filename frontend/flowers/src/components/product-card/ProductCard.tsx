@@ -7,7 +7,11 @@ import { useEffect, useMemo, useState } from "react";
 import type { Flower } from "@/types/flowers";
 import LazyReveal from "../lazy-reveal/LazyReveal";
 import { useRouter } from "next/navigation";
-import { isUserLoggedIn } from "@/lib/utils/clientAuth";
+import {
+  isUserLoggedIn,
+  readWishlist,
+  writeWishlist,
+} from "@/lib/utils/clientAuth";
 
 type ProductCardProps = {
   flower: Flower;
@@ -18,10 +22,7 @@ const ProductCard = ({ flower }: ProductCardProps) => {
 
   const [isWishlisted, setIsWishlisted] = useState(() => {
     if (typeof window === "undefined") return false;
-
-    const wishlist: Flower[] = JSON.parse(
-      localStorage.getItem("wishlist") || "[]"
-    );
+    const wishlist = readWishlist();
 
     return wishlist.some((item) => item._id === flower._id);
   });
@@ -33,9 +34,7 @@ const ProductCard = ({ flower }: ProductCardProps) => {
 
   useEffect(() => {
     const syncWishlistState = () => {
-      const wishlist: Flower[] = JSON.parse(
-        localStorage.getItem("wishlist") || "[]"
-      );
+      const wishlist = readWishlist();
 
       setIsWishlisted(wishlist.some((item) => item._id === flower._id));
     };
@@ -53,9 +52,7 @@ const ProductCard = ({ flower }: ProductCardProps) => {
       return;
     }
 
-    const currentWishlist: Flower[] = JSON.parse(
-      localStorage.getItem("wishlist") || "[]"
-    );
+    const currentWishlist = readWishlist();
 
     const exists = currentWishlist.some((item) => item._id === flower._id);
 
@@ -63,7 +60,7 @@ const ProductCard = ({ flower }: ProductCardProps) => {
       ? currentWishlist.filter((item) => item._id !== flower._id)
       : [...currentWishlist, flower];
 
-    localStorage.setItem("wishlist", JSON.stringify(updatedWishlist));
+    writeWishlist(updatedWishlist);
     setIsWishlisted(!exists);
     window.dispatchEvent(new Event("wishlist-updated"));
   };

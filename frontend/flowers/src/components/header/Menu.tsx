@@ -6,7 +6,7 @@ import { actions } from "@/data/actions";
 import "./menu.css";
 import { Box } from "@mui/material";
 import { useEffect, useState } from "react";
-import { isUserLoggedIn } from "@/lib/utils/clientAuth";
+import { isUserLoggedIn, readWishlist } from "@/lib/utils/clientAuth";
 import { Heart } from "lucide-react";
 import { useRouter } from "next/navigation";
 
@@ -43,7 +43,7 @@ export default function Menu({ open, setOpen }: MenuProps) {
 
   useEffect(() => {
     const updateWishlistCount = () => {
-      const wishlist = JSON.parse(localStorage.getItem("wishlist") || "[]");
+      const wishlist = readWishlist();
       setWishlistCount(wishlist.length);
     };
 
@@ -64,7 +64,7 @@ export default function Menu({ open, setOpen }: MenuProps) {
     };
   }, []);
 
-  const hasWishlistItems = wishlistCount > 0;
+  const hasWishlistItems = userLoggedIn && wishlistCount > 0;
 
   const handleLogout = async () => {
     await actions.auth.logoutAction();

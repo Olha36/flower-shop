@@ -7,7 +7,11 @@ import type { Flower } from "@/types/flowers";
 import Header from "../header/header";
 import { Typography, Box } from "@mui/material";
 import { useRouter } from "next/navigation";
-import { isUserLoggedIn } from "@/lib/utils/clientAuth";
+import {
+  isUserLoggedIn,
+  readWishlist,
+  writeWishlist,
+} from "@/lib/utils/clientAuth";
 
 const Wishlist = () => {
   const router = useRouter();
@@ -24,7 +28,7 @@ const Wishlist = () => {
     if (!loggedIn) return;
 
     const loadWishlist = () => {
-      const wishlist = JSON.parse(localStorage.getItem("wishlist") || "[]");
+      const wishlist = readWishlist();
       setItems(wishlist);
     };
 
@@ -40,7 +44,7 @@ const Wishlist = () => {
 
   const removeFromWishlist = (id: string) => {
     const updated = items.filter((item) => item._id !== id);
-    localStorage.setItem("wishlist", JSON.stringify(updated));
+    writeWishlist(updated);
     setItems(updated);
     window.dispatchEvent(new Event("wishlist-updated"));
   };
@@ -81,24 +85,34 @@ const Wishlist = () => {
                   />
                 </Box>
 
-                <Box className="p-5">
+                <Box className="flex min-h-[260px] flex-col p-5">
                   <Typography
                     variant="h2"
-                    className="text-[18px] font-bold uppercase text-[#2C2825]"
+                    className="min-h-[4.4rem] text-[18px] font-bold uppercase leading-[1.1] text-[#2C2825]"
+                    sx={{
+                      display: "-webkit-box",
+                      WebkitBoxOrient: "vertical",
+                      WebkitLineClamp: 2,
+                      overflow: "hidden",
+                      textOverflow: "ellipsis",
+                      wordBreak: "break-word",
+                    }}
                   >
                     {flower.name}
                   </Typography>
-                  <Typography className="mt-2 text-[15px] font-bold text-black/60">
-                    ${flower.price}/Bunch
-                  </Typography>
+                  <Box className="mt-auto pt-4">
+                    <Typography className="text-[15px] font-bold text-black/60">
+                      ${flower.price}/Bunch
+                    </Typography>
 
-                  <button
-                    type="button"
-                    onClick={() => removeFromWishlist(flower._id)}
-                    className="mt-4 rounded-full border border-[#2C2825] px-4 py-2 text-sm font-semibold uppercase text-[#2C2825] transition hover:bg-[#2C2825] hover:text-white"
-                  >
-                    Remove
-                  </button>
+                    <button
+                      type="button"
+                      onClick={() => removeFromWishlist(flower._id)}
+                      className="mt-4 rounded-full border border-[#2C2825] px-4 py-2 text-sm font-semibold uppercase text-[#2C2825] transition hover:bg-[#2C2825] hover:text-white"
+                    >
+                      Remove
+                    </button>
+                  </Box>
                 </Box>
               </Box>
             ))}

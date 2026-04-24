@@ -10,7 +10,7 @@ import Burger from "./Burger";
 import Menu from "./Menu";
 import { Heart } from "lucide-react";
 import { useRouter } from "next/navigation";
-import { isUserLoggedIn } from "@/lib/utils/clientAuth";
+import { isUserLoggedIn, readWishlist } from "@/lib/utils/clientAuth";
 
 const Header = () => {
   const [open, setOpen] = useState(false);
@@ -22,7 +22,7 @@ const Header = () => {
 
   useEffect(() => {
     const updateWishlistCount = () => {
-      const wishlist = JSON.parse(localStorage.getItem("wishlist") || "[]");
+      const wishlist = readWishlist();
       setWishlistCount(wishlist.length);
     };
 
@@ -50,7 +50,7 @@ const Header = () => {
     };
   }, []);
 
-  const hasWishlistItems = wishlistCount > 0;
+  const hasWishlistItems = userLoggedIn && wishlistCount > 0;
 
   const router = useRouter();
 
