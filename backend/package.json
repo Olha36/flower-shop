@@ -1,10 +1,11 @@
 {
-  
   "name": "backend",
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-   "devStart": "nodemon server.js"
+    "devStart": "nodemon server.js",
+    "start": "node server.js",
+    "build": "echo \"No build step required\""
   },
   "author": "",
   "license": "ISC",
@@ -15,6 +16,7 @@
   },
   "devDependencies": {
     "dotenv": "^17.3.1",
-    "nodemon": "^3.1.14"
+    "nodemon": "^3.1.14",
+    "vercel": "^52.0.0"
   }
 }
