@@ -1,6 +1,7 @@
 import type { Flower } from "@/types/flowers";
 
-const FLOWERS_API_URL = "http://localhost:3001/flowers";
+const API_URL = process.env.NEXT_PUBLIC_API_URL ?? "http://localhost:3001";
+const FLOWERS_API_URL = `${API_URL}/flowers`;
 
 export async function getFlowers(): Promise<Flower[]> {
   const res = await fetch(FLOWERS_API_URL);
